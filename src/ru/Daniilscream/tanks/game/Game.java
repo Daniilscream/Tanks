@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import graphics.TextureAtlas;
 import ru.Daniilscream.tanks.IO.Input;
 import ru.Daniilscream.tanks.display.Display;
 import ru.Daniilscream.tanks.utils.Time;
@@ -21,10 +22,13 @@ public class Game implements Runnable{
 	
 	public static final long IDLE_TIME = 1;
 	
+	public static final String ATLAS_FILE_NAME = "texture_atlas.png";
+	
 	private boolean running;
 	private Thread gameThread;
 	private Graphics2D graphics;
 	private Input input;
+	private TextureAtlas atlas;
 	
 	int x = 350;
 	int y = 250;
@@ -39,6 +43,7 @@ public class Game implements Runnable{
 		graphics=Display.getGraphics();
 		input = new Input();
 		Display.addInputListener(input);
+		atlas = new TextureAtlas(ATLAS_FILE_NAME);
 	}
 	
 	public synchronized void start() {
@@ -82,7 +87,8 @@ public class Game implements Runnable{
 	private void render() {
 		Display.clear();
 		graphics.setColor(Color.white);
-		graphics.fillOval((int)(x+Math.sin(delta)*200), y, radius*2, radius*2);
+		graphics.drawImage(atlas.cut(0, 0, 32, 32),300,300,null);
+//		graphics.fillOval((int)(x+Math.sin(delta)*200), y, radius*2, radius*2);
 		Display.swapBuffers();
 	}
 	
