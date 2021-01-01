@@ -15,6 +15,8 @@ import javax.swing.Box.Filler;
 
 import javax.swing.JFrame;
 
+import ru.Daniilscream.tanks.IO.Input;
+
 public abstract class Display {
 	
 	private static boolean created = false;
@@ -79,5 +81,9 @@ public abstract class Display {
 	
 	public static void setTitle(String title) {
 		window.setTitle(title);
+	}
+	
+	public static void addInputListener(Input inputListener) {
+		window.add(inputListener);
 	}
 }
