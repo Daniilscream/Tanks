@@ -1,4 +1,4 @@
-package ru.Daniilscream.tanks.game;
+package ru.Daniilscream.tanks.graphics;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
