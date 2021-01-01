@@ -1,4 +1,4 @@
-package graphics;
+package ru.Daniilscream.tanks.graphics;
 
 import java.awt.image.BufferedImage;
 
